@@ -304,7 +304,7 @@ public class SpreadSheet extends CommonSpreadSheet implements Cloneable {
 				int row = rowAtPoint(p);
 				int col = columnAtPoint(p);
 				SpreadSheetPopupMenu popup=getPopup();
-				if (SwingUtilities.isLeftMouseButton(e)) {
+				if (SwingUtilities.isLeftMouseButton(e) && !e.isControlDown()) {
 					SpreadSheetColumnModel columnModel = (SpreadSheetColumnModel) getColumnModel();
 					Field field = ((SpreadSheetModel) getModel()).getFieldInNonTranslatedColumn(col + 1);
 					SpreadSheetModel model = (SpreadSheetModel) getModel();
@@ -346,7 +346,7 @@ public class SpreadSheet extends CommonSpreadSheet implements Cloneable {
 					}
 								
 					
-				} else if (popup != null && SwingUtilities.isRightMouseButton(e)) { // e.isPopupTrigger() can be used too
+				} else if (popup != null && SwingUtilities.isRightMouseButton(e) || (SwingUtilities.isLeftMouseButton(e) && e.isControlDown())) { // e.isPopupTrigger() can be used too
 //					selection.getRowSelection().clearSelection();
 //					selection.getRowSelection().addSelectionInterval(row, row);
 					popup.setRow(row);

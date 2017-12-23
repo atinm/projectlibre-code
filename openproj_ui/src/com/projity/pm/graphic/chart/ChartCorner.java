@@ -30,7 +30,7 @@ in Exhibits A and B of the license at http://www.projity.com/license. You should
 use the latest text at http://www.projity.com/license for your modifications.
 You may not remove this license text from the source files.]
 
-Attribution Information: Attribution Copyright Notice: Copyright © 2006, 2007 
+Attribution Information: Attribution Copyright Notice: Copyright ï¿½ 2006, 2007 
 Projity, Inc. Attribution Phrase (not exceeding 10 words): Powered by OpenProj, 
 an open source solution from Projity. Attribution URL: http://www.projity.com 
 Graphic Image as provided in the Covered Code as file:  openproj_logo.png with 
@@ -76,7 +76,7 @@ public class ChartCorner extends GradientCorner {
 			public void mousePressed(MouseEvent e){
 				TimeChartPanel chart=ChartCorner.this.chart;
 
-				if  (SwingUtilities.isRightMouseButton(e)) {
+				if  (SwingUtilities.isRightMouseButton(e) || (SwingUtilities.isLeftMouseButton(e) && e.isControlDown())) {
 					JPopupMenu popup = chart.getPopupMenu();
 					// not using this anymoreTimeChartPopupMenu popup = new TimeChartPopupMenu(chart);
 					popup.show(chart,e.getX(),e.getY());

@@ -92,7 +92,7 @@ public class SpreadSheetCorner extends GradientCorner implements ListSelectionLi
 			public void mousePressed(MouseEvent e){
 				CommonSpreadSheet spreadSheet=SpreadSheetCorner.this.spreadSheet;
 
-				if  (SwingUtilities.isRightMouseButton(e)) {
+				if  (SwingUtilities.isRightMouseButton(e) || (SwingUtilities.isLeftMouseButton(e) && e.isControlDown())) {
 					if (spreadSheet instanceof CommonSpreadSheet && spreadSheet.getSpreadSheetCategory() != null){
 						CommonSpreadSheet sp=(CommonSpreadSheet)spreadSheet;
 						if (sp.isCanSelectFieldArray()) {

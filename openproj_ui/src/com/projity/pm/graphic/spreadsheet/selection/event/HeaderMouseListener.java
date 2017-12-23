@@ -30,7 +30,7 @@ in Exhibits A and B of the license at http://www.projity.com/license. You should
 use the latest text at http://www.projity.com/license for your modifications.
 You may not remove this license text from the source files.]
 
-Attribution Information: Attribution Copyright Notice: Copyright © 2006, 2007 
+Attribution Information: Attribution Copyright Notice: Copyright ï¿½ 2006, 2007 
 Projity, Inc. Attribution Phrase (not exceeding 10 words): Powered by OpenProj, 
 an open source solution from Projity. Attribution URL: http://www.projity.com 
 Graphic Image as provided in the Covered Code as file:  openproj_logo.png with 
@@ -69,13 +69,13 @@ public class HeaderMouseListener extends MouseAdapter {
 	}
 	public void mouseClicked(MouseEvent e){
 		int col = table.columnAtPoint(e.getPoint());
-		if  (SwingUtilities.isLeftMouseButton(e)) {
+		if  (SwingUtilities.isLeftMouseButton(e) && !e.isControlDown()) {
 	
 			SpreadSheetSelectionModel selection=table.getSelection();
 			table.getRowHeader().clearSelection();
 			selection.getColumnSelection().setSelectionInterval(col,col);
 			selection.getRowSelection().setSelectionInterval(0,table.getRowCount()-1);
-		} else if (SwingUtilities.isRightMouseButton(e)) {
+		} else if (SwingUtilities.isRightMouseButton(e) || (SwingUtilities.isLeftMouseButton(e) && e.isControlDown())) {
 			if (table instanceof CommonSpreadSheet && ((CommonSpreadSheet)table).getSpreadSheetCategory() != null){
 				CommonSpreadSheet sp=(CommonSpreadSheet)table;
 				if (sp.isHasColumnHeaderPopup()) {

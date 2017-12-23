@@ -1,5 +1,7 @@
 .DS_Store
 .class
+.idea/
+.project
 */bin/*
 openproj_build/build-override.properties
 openproj_build/build/

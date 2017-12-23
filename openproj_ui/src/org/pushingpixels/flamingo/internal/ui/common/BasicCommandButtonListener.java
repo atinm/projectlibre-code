@@ -85,7 +85,7 @@ public class BasicCommandButtonListener implements MouseListener,
 	 */
 	@Override
 	public void mousePressed(MouseEvent e) {
-		if (SwingUtilities.isLeftMouseButton(e)) {
+		if (SwingUtilities.isLeftMouseButton(e) && !e.isControlDown()) {
 			AbstractCommandButton b = (AbstractCommandButton) e.getSource();
 
 			JScrollablePanel scrollable = (JScrollablePanel) SwingUtilities
@@ -142,7 +142,7 @@ public class BasicCommandButtonListener implements MouseListener,
 	 */
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		if (SwingUtilities.isLeftMouseButton(e)) {
+		if (SwingUtilities.isLeftMouseButton(e) && !e.isControlDown()) {
 			AbstractCommandButton b = (AbstractCommandButton) e.getSource();
 			b.getActionModel().setPressed(false);
 			if (b instanceof JCommandButton) {
